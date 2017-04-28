@@ -1,0 +1,100 @@
+
+The value of g_PowerModifyVal is 30 
+BRU3516
+------------- set powr1 decrement 0x6d ---------------
+------------- set powr2 decrement 0x61 ---------------
+------------- set rxGain 0x34 ---------------
+------------- set gpoOn 0x77 ---------------
+Device=9 NumAntennas=2 TxLoopback=0 RxLoopback=0
+Info: Inside Enable loopback
+Set up FDD independant mode (for TDD)
+MapDlInBufPhysAddr[0]=f3023880 MapDlInBufPhysAddr[1]=f3023980 MapUlOutBufPhysAddr[0]=f3023900 MapUlOutBufPhysAddr[1]=f3023a00
+Info: Radio was configured
+Info: Inside TRAD_IOCTL_GET_TX_BUF_PTR
+Info: Inside TRAD_IOCTL_GET_RX_BUF_PTR
+Tx0LogPA=0x208d3300 Rx0LogPA=0x224f3400
+Tx1LogProot@CELL:/tmp/log# ru starting ...
+ru start ok
+Unable to handle kernel NULL pointer dereference at virtual address 00000000
+pgd = 8a464000
+[00000000] *pgd=1f3bd831, *pte=00000000, *ppte=00000000
+Internal error: Oops: 80000007 [#1] PREEMPT SMP
+Modules linked in: spaccdev elpspacccrypt elpspaccdiag elptrng elpspacc tradiodrv_tdd mdma kheap t4gfeculdrv t4gfecdldrv tmapdrv iccserv tdspdrv klgw_eth camellia serpent blowfish cast5 elpxfrm elpclp30 elppdu asix usb_storage usbnet nf_nat_irc nf_conntrack_irc nf_nat_ftp nf_conntrack_ftp ipt_MASQUERADE iptable_nat nf_nat xt_conntrack xt_NOTRACK iptable_raw xt_state nf_conntrack_ipv4 nf_defrag_ipv4 nf_conntrack ehci_hcd sd_mod pppoe pppox ipt_REJECT xt_TCPMSS ipt_LOG xt_comment xt_multiport xt_mac xt_limit iptable_mangle iptable_filter ip_tables xt_tcpudp x_tables ipcomp6 xfrm6_tunnel xfrm6_mode_tunnel xfrm6_mode_transport xfrm6_mode_beet ipcomp xfrm4_tunnel xfrm4_mode_beet ip6_tunnel tunnel6 ppp_async ppp_generic slhc xfrm_user xfrm_ipcomp af_key usbcore ts_fsm ts_bm ts_kmp scsi_mod crc_ccitt ipv6
+CPU: 0    Not tainted  (3.0.51-rt75 #1)
+PC is at 0x0
+LR is at led_open+0x58/0x8c
+pc : [<00000000>]    lr : [<80271918>]    psr: 60000013
+sp : 982f3e28  ip : 00000000  fp : 00000000
+r10: 9ec30508  r9 : 800d12b4  r8 : 00000000
+r7 : 00000000  r6 : 804cc47c  r5 : 804cc32c  r4 : 00000004
+r3 : 00000000  r2 : 00000100  r1 : 00000000  r0 : 804cc430
+Flags: nZCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+Control: 10c53c7d  Table: 0a46404a  DAC: 00000015
+Process ru_apps (pid: 3836, stack limit = 0x982f2270)
+Stack: (0x982f3e28 to 0x982f4000)
+3e20:                   802718c0 9ec30508 9efdf620 800d1454 9ec30508 00000004
+3e40: 80334cb0 00000000 9f821080 9f4b7088 9efdf620 800cc1fc 982f3ef8 9ec30508
+3e60: 00000002 00000000 00000000 00000026 9f412840 800da200 9f04f005 982f3ef8
+3e80: ffffff9c 9ec30508 9f412840 982f3ef8 982f3f78 9f04f000 ffffff9c 80031428
+3ea0: 982f2000 00000000 00000000 800da478 982f3ecc 00000000 982f3edc 80049b5c
+3ec0: 9f382980 9f821080 9f4b7088 00000000 9f0205a0 982f3f78 00000001 9f04f000
+3ee0: ffffff9c 80031428 00000000 800da80c 00000041 8032bb60 9f821080 9f4b7088
+3f00: 01a76dff 00000004 9f04f005 00000000 9f422970 9ec30508 00000101 00000004
+3f20: 00000000 00000000 9f04f000 9f800901 000000d0 00000002 9f056ce8 9f056ce0
+3f40: 9f056d20 00000000 00000000 00000003 00000000 00000000 9f04f000 00000004
+3f60: ffffff9c 9f04f000 00000001 800cd078 9f2d04b0 8032bd4c 00000002 00000000
+3f80: 00000026 00000100 00000000 00000000 00027c7c 00000000 00000005 80031428
+3fa0: 00000000 80031280 00000000 00027c7c 00029500 00000002 00000001 0000a1b0
+3fc0: 00000000 00027c7c 00000000 00000005 00000000 00000000 2b42e000 00000000
+3fe0: 00000000 7e876970 2ac9067c 2ac91994 80000010 00029500 1fffe821 1fffec21
+[<80271918>] (led_open+0x58/0x8c) from [<800d1454>] (chrdev_open+0x1a0/0x1cc)
+[<800d1454>] (chrdev_open+0x1a0/0x1cc) from [<800cc1fc>] (__dentry_open.clone.12+0x1a8/0x2b8)
+[<800cc1fc>] (__dentry_open.clone.12+0x1a8/0x2b8) from [<800da200>] (do_last.clone.27+0x540/0x674)
+[<800da200>] (do_last.clone.27+0x540/0x674) from [<800da478>] (path_openat+0xb4/0x374)
+[<800da478>] (path_openat+0xb4/0x374) from [<800da80c>] (do_filp_open+0x2c/0x78)
+[<800da80c>] (do_filp_open+0x2c/0x78) from [<800cd078>] (do_sys_open+0xe4/0x17c)
+[<800cd078>] (do_sys_open+0xe4/0x17c) from [<80031280>] (ret_fast_syscall+0x0/0x30)
+Code: bad PC value
+---[ end trace 0000000000000002 ]---
+PANIC: Fatal exception
+Kernel panic - not syncing: Fatal exception
+[<8003ac9c>] (unwind_backtrace+0x0/0xe0) from [<80329d78>] (panic+0x68/0x190)
+[<80329d78>] (panic+0x68/0x190) from [<80034e0c>] (die+0x178/0x1b8)
+[<80034e0c>] (die+0x178/0x1b8) from [<8003e38c>] (__do_kernel_fault+0x64/0x84)
+[<8003e38c>] (__do_kernel_fault+0x64/0x84) from [<8003e620>] (do_page_fault+0x274/0x294)
+[<8003e620>] (do_page_fault+0x274/0x294) from [<800303c8>] (do_PrefetchAbort+0x34/0x98)
+[<800303c8>] (do_PrefetchAbort+0x34/0x98) from [<80030ef4>] (__pabt_svc+0x74/0xc0)
+Exception stack(0x982f3de0 to 0x982f3e28)
+3de0: 804cc430 00000000 00000100 00000000 00000004 804cc32c 804cc47c 00000000
+3e00: 00000000 800d12b4 9ec30508 00000000 00000000 982f3e28 80271918 00000000
+3e20: 60000013 ffffffff
+[<80030ef4>] (__pabt_svc+0x74/0xc0) from [<80271918>] (led_open+0x58/0x8c)
+[<80271918>] (led_open+0x58/0x8c) from [<800d1454>] (chrdev_open+0x1a0/0x1cc)
+[<800d1454>] (chrdev_open+0x1a0/0x1cc) from [<800cc1fc>] (__dentry_open.clone.12+0x1a8/0x2b8)
+[<800cc1fc>] (__dentry_open.clone.12+0x1a8/0x2b8) from [<800da200>] (do_last.clone.27+0x540/0x674)
+[<800da200>] (do_last.clone.27+0x540/0x674) from [<800da478>] (path_openat+0xb4/0x374)
+[<800da478>] (path_openat+0xb4/0x374) from [<800da80c>] (do_filp_open+0x2c/0x78)
+[<800da80c>] (do_filp_open+0x2c/0x78) from [<800cd078>] (do_sys_open+0xe4/0x17c)
+[<800cd078>] (do_sys_open+0xe4/0x17c) from [<80031280>] (ret_fast_syscall+0x0/0x30)
+CPU1: stopping
+[<8003ac9c>] (unwind_backtrace+0x0/0xe0) from [<80036278>] (kernel_do_IPI+0xb4/0x108)
+[<80036278>] (kernel_do_IPI+0xb4/0x108) from [<800302e4>] (do_IPI+0x34/0x4c)
+[<800302e4>] (do_IPI+0x34/0x4c) from [<80030d2c>] (__irq_svc+0x4c/0x10c)
+Exception stack(0x9f02bd80 to 0x9f02bdc8)
+bd80: 9f111800 8a402800 00000800 0000054e 9f111800 9f111a68 00000008 00000000
+bda0: 8a402800 8a402800 9fbe8000 00000003 000000ff 9f02bdc8 802217e8 8022165c
+bdc0: 80000113 ffffffff
+[<80030d2c>] (__irq_svc+0x4c/0x10c) from [<8022165c>] (nand_read_buf+0x18/0x2c)
+[<8022165c>] (nand_read_buf+0x18/0x2c) from [<802217e8>] (nand_read_page_raw+0x1c/0x38)
+[<802217e8>] (nand_read_page_raw+0x1c/0x38) from [<80221914>] (nand_read_page_swecc+0x3c/0x104)
+[<80221914>] (nand_read_page_swecc+0x3c/0x104) from [<802242a8>] (nand_do_read_ops+0x1f0/0x3ec)
+[<802242a8>] (nand_do_read_ops+0x1f0/0x3ec) from [<80224794>] (nand_read+0x74/0x94)
+[<80224794>] (nand_read+0x74/0x94) from [<8020da70>] (part_read+0x6c/0xc0)
+[<8020da70>] (part_read+0x6c/0xc0) from [<80167004>] (jffs2_erase_pending_blocks+0x204/0x73c)
+[<80167004>] (jffs2_erase_pending_blocks+0x204/0x73c) from [<80165ec4>] (jffs2_garbage_collect_pass+0x224/0x7ec)
+[<80165ec4>] (jffs2_garbage_collect_pass+0x224/0x7ec) from [<80169ffc>] (jffs2_flush_wbuf_gc+0x60/0xe0)
+[<80169ffc>] (jffs2_flush_wbuf_gc+0x60/0xe0) from [<80168c74>] (jffs2_write_super+0x2c/0x38)
+[<80168c74>] (jffs2_write_super+0x2c/0x38) from [<800d0560>] (sync_supers+0x98/0xfc)
+[<800d0560>] (sync_supers+0x98/0xfc) from [<800b81c4>] (bdi_sync_supers+0x44/0x58)
+[<800b81c4>] (bdi_sync_supers+0x44/0x58) from [<8006e934>] (kthread+0x84/0x8c)
+[<8006e934>] (kthread+0x84/0x8c) from [<8003217c>] (kernel_thread_exit+0x0/0x8)
