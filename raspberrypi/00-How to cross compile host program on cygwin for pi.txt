@@ -1,0 +1,24 @@
+1. Download cross compiler from http://gnutoolchains.com/raspberry/
+2. Install compiler
+3. Add path (cygwin\opt\bin)
+4. copy PI(\usr\include\readline) --> cygwin\opt\arm-linux-gnueabihf\include
+5. create a file: my-custom.mak, put it in the root dir of host project. Put the folloing settings into the file
+
+COMPILER=arm-linux-gnueabihf-gcc.exe
+LINKER=arm-linux-gnueabihf-ld.exe
+ARCHIVE=arm-linux-gnueabihf-ar.exe
+
+C_INCLUDE_PATH=/opt/arm-linux-gnueabihf/include
+LIBRARY_PATH=/opt/arm-linux-gnueabihf/lib
+
+COMPILER_INCLUDES=-I${C_INCLUDE_PATH}
+LINKER_FLAGS=-L. -L${LIBRARY_PATH} -L/opt/arm-linux-gnueabihf/sysroot/usr/lib/arm-linux-gnueabihf -L/opt/arm-linux-gnueabihf/sysroot/lib
+
+GENERATE_LIBRARY=1
+
+6. Make with command:
+make INCLUDE_MAKEFILE=my-custom.mak
+
+7. copy build/exe/*.a to PI
+8. build the executable file:
+gcc -o Z3GatewayHost  Z3GatewayHost_640Pi.a -lreadline -lncurses -lpthread -lm
